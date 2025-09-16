@@ -18,7 +18,7 @@ const __dirname = dirname(__filename);
 const app=express();
 
 app.use(cors({
-    origin:"prep-ai-123.vercel.app",
+    origin:'https://prep-ai-123.vercel.app',
     methods:["GET","POST","PUT","DELETE"],
     allowedHeaders: ["Content-type","Authorization"],
 }));
