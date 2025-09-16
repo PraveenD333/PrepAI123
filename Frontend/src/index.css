@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@theme {
+    --breakpoint-3xl: 1920px;
+    --color-primary: #FF9324;
+}
+
+@layer base {
+    body {
+        background-color: black;
+        overflow-x: hidden;
+    }
+}
+
+/* Remove the ScrollBar */
+.drawer-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+/* Coustom Scrollbar styling */
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 100, 100, 0.4);
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+@layer utilities {
+
+    /* Animate text with a shine effects */
+    @keyframes text-shine {
+        0% {
+            background-position: -200% 0%;
+        }
+
+        100% {
+            background-position: 200% 0%;
+        }
+    }
+
+    .animate-text-shine {
+        background-size: 400% 100%;
+        animation: text-shine 10s linear infinite;
+    }
+
+    @keyframes pulse-smooth {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.7;
+        }
+    }
+
+    .animate-pulse-smooth {
+        animation: pulse-smooth 2s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+        0% {
+            background-position: 200% 0;
+        }
+
+        100% {
+            background-position: -200% 0;
+        }
+    }
+
+    .animate-shimmer {
+        background: linear-gradient(90deg,
+                #1f2937 25%, /* dark gray shade */
+                #4b5563 50%,/* lighter gray shade */
+                #1f2937 75%);
+        background-size: 200% 100%;
+        animation: shimmer 6s linear infinite;
+    }
+
+
+
+    @keyframes blob1 {
+
+        0%,
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        33% {
+            transform: translate(30px, -60px) scale(1.1);
+        }
+
+        66% {
+            transform: translate(-20px, 20px) scale(0.9);
+        }
+    }
+
+    @keyframes blob2 {
+
+        0%,
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        33% {
+            transform: translate(-40px, 60px) scale(1.05);
+        }
+
+        66% {
+            transform: translate(20px, -40px) scale(0.95);
+        }
+    }
+
+    @keyframes blob3 {
+
+        0%,
+        100% {
+            transform: translate(0px, 0px) scale(1);
+        }
+
+        33% {
+            transform: translate(20px, 140px) scale(1.15);
+        }
+
+        66% {
+            transform: translate(-30px, -30px) scale(0.85);
+        }
+    }
+
+    .animate-blob1 {
+        animation: blob1 8s ease-in-out infinite;
+    }
+
+    .animate-blob2 {
+        animation: blob2 10s ease-in-out infinite;
+    }
+
+    .animate-blob3 {
+        animation: blob3 12s ease-in-out infinite;
+    }
+}
+
+.input-box {
+    @apply w-full flex justify-between gap-3 text-sm text-white bg-black rounded px-4 py-3 mb-4 mt-3 border border-white outline-none focus-within:border-purple-500;
+}
+
+.btn-primary {
+    @apply mx-auto w-1/2 flex items-center justify-center gap-3 text-sm font-medium text-white bg-black border border-white shadow-lg shadow-orange-600/5 p-[10px] rounded-md my-1 cursor-pointer transition-transform transform hover:-translate-y-1 duration-300 ease-in-out;
+}
+
+.btn-small {
+    @apply flex items-center justify-center gap-3 text-red-500 bg-black text-sm font-semibold  px-7 py-2 rounded-lg border border-red-500 hover:bg-red-700 hover:text-white transition-colors duration-300 ease-in-out;
+}
+
+/* styles.css or module.css */
+.responsive-bg {
+  background-image: url('./assets/aibrain.gif');
+  background-repeat: no-repeat;
+  background-size: 130%;
+  background-position: 70% 40%;
+}
+
+@media (max-width: 768px) {
+  .responsive-bg {
+    background-size: 180%;
+    background-position: 50% 30%;
+  }
+}
+
+@media (max-width: 414px) {
+  .responsive-bg {
+    background-size: 220%;
+    background-position: 55% 20%;
+  }
+}
